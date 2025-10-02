@@ -41,6 +41,38 @@
 
 ---
 
+### 💼 Experiência de Trabalho
+
+Na visão geral abaixo você encontrará minhas experiências mais recentes:
+
+<a href="https://www.grupomalwee.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo do Grupo Malwee" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe51WIcWu8VEGs5j_ckHOMvRIYZ0cyPRk9sg&s"></a>
+
+**Programador de Sistemas da Informação** \
+[**Grupo Malwee**](https://www.grupomalwee.com.br/) • Jovem Aprendiz \
+Linguagens & Tecnologias: `Python`, `JavaScript`, `Desenvolvimento de Scripts`, `Automação de Tarefas`, `Suporte a Sistemas`, `Resolução de Bugs`, `Versionamento com Git`
+<br clear="both"/>
+<br/>
+
+<a href="https://axtun.com/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Axtun" src="https://media.licdn.com/dms/image/v2/C4E0BAQEuxNnswIqI7A/company-logo_200_200/company-logo_200_200/0/1630570234911?e=2147483647&v=beta&t=7KYd11ZPgnP3GgvMJWUYfe1_i1fj-dsQ3w8QEqgqH_s"/></a>
+
+**Montador de Painéis Elétricos** \
+[**Axtun**](https://axtun.com/) • Efetivo \
+Competências Desenvolvidas: `Lógica de Sistemas`, `Debugging de Hardware`, `Interpretação de Especificações Técnicas`, `Raciocínio Lógico`, `Atenção a Detalhes`, `Controle de Qualidade`
+<br clear="both"/>
+<br/>
+
+<a href="https://www.projecamp.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Projecamp" src="https://media.licdn.com/dms/image/v2/C560BAQEG5Gx_0dI6Dg/company-logo_200_200/company-logo_200_200/0/1631335337722?e=1762387200&v=beta&t=327hwDzO1adtN1JfkUVNLlAtPffu9hc-Qk_PvtD0GCg"/></a>
+
+**Estagiário Projetista Elétrico** \
+[**Projecamp**](https://www.projecamp.com.br/) • Estágio \
+Competências Desenvolvidas: `Análise de Requisitos`, `Planejamento de Sistemas`, `Visão Sistêmica`, `Documentação Técnica`, `Resolução de Problemas`
+<br clear="both"/>
+<br/>
+
+Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-do-nascimento-a8f3fRY680226/) para uma descrição mais detalhada da minha experiência de trabalho.
+
+---
+
 ### 🌱 Projetos (Em Construção)
 
 <p align="center">
