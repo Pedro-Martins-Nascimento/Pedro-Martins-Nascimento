@@ -73,13 +73,32 @@ Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-d
 
 ---
 
-### 🌱 Projetos (Em Construção)
+### ⭐ Projetos em Destaque
 
-<p align="center">
-  🚧 <strong>Novos projetos a caminho...</strong> 🚧
-  <br>
-  <em>Estou desenvolvendo novas aplicações para demonstrar minhas habilidades. Volte em breve para ver as novidades!</em>
-</p>
+<table>
+  <tr>
+    <td valign="top">
+      <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank">
+        <img src="[LINK PARA IMAGEM OU GIF DO PROJETO]" alt="Preview do Projeto Gerenciador de Medidas" width="100%"/>
+      </a>
+    </td>
+    <td valign="top">
+      <h3>Gerenciador de Medidas (SPA)</h3>
+      <p>
+        Aplicação web front-end construída com <strong>JavaScript puro (Vanilla JS)</strong> e arquitetura <strong>MVC</strong>. O projeto demonstra um profundo conhecimento dos fundamentos da web, com manipulação direta do DOM, persistência de dados e design responsivo.
+      </p>
+      <p>
+        <strong>Tecnologias:</strong> <code>JavaScript (ES6+)</code>, <code>Tailwind CSS</code>, <code>HTML5</code>
+      </p>
+      <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank">
+        <img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white" alt="Ver Repositório"/>
+      </a>
+      <a href="https://pedro-martins-nascimento.github.io/Gerenciador-de-Medidas/" target="_blank">
+        <img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white" alt="Ver Demo Ao Vivo"/>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
