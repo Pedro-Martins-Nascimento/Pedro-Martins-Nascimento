@@ -75,27 +75,29 @@ Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-d
 
 ### ⭐ Projetos em Destaque
 
-<table>
+<table width="100%">
   <tr>
-    <td valign="top">
+    <!-- Projeto 1: Gerenciador de Medidas -->
+    <td width="50%" valign="top">
       <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank">
-        <img src="[LINK PARA IMAGEM OU GIF DO PROJETO]" alt="Preview do Projeto Gerenciador de Medidas" width="100%"/>
+        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas/main/Pr%C3%A9-Visualiza%C3%A7%C3%A3o.png" alt="Preview do Projeto Gerenciador de Medidas" width="100%"/>
       </a>
-    </td>
-    <td valign="top">
       <h3>Gerenciador de Medidas (SPA)</h3>
-      <p>
-        Aplicação web front-end construída com <strong>JavaScript puro (Vanilla JS)</strong> e arquitetura <strong>MVC</strong>. O projeto demonstra um profundo conhecimento dos fundamentos da web, com manipulação direta do DOM, persistência de dados e design responsivo.
-      </p>
-      <p>
-        <strong>Tecnologias:</strong> <code>JavaScript (ES6+)</code>, <code>Tailwind CSS</code>, <code>HTML5</code>
-      </p>
-      <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank">
-        <img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white" alt="Ver Repositório"/>
+      <p>Aplicação web construída com <strong>JavaScript puro (Vanilla JS)</strong> e arquitetura <strong>MVC</strong> para demonstrar um profundo conhecimento dos fundamentos da web.</p>
+      <p><strong>Tecnologias:</strong> <code>JavaScript (ES6+)</code>, <code>Tailwind CSS</code>, <code>HTML5</code></p>
+      <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank"><img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white"></a>
+      <a href="https://pedro-martins-nascimento.github.io/Gerenciador-de-Medidas/" target="_blank"><img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white"></a>
+    </td>
+    <!-- Projeto 2: Glossário Arduino -->
+    <td width="50%" valign="top">
+      <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank">
+        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Arduino/master/assets/Pr%C3%A9-Visualiza%C3%A7%C3%A3o_Arduino.png" alt="Preview do Projeto Glossário Arduino" width="100%"/>
       </a>
-      <a href="https://pedro-martins-nascimento.github.io/Gerenciador-de-Medidas/" target="_blank">
-        <img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white" alt="Ver Demo Ao Vivo"/>
-      </a>
+      <h3>Glossário de Componentes Eletrônicos</h3>
+      <p>Site estático desenvolvido em equipe como projeto acadêmico. O objetivo foi criar um guia de referência para componentes de Arduino usando <strong>HTML5 semântico e CSS3 puro</strong>.</p>
+      <p><strong>Tecnologias:</strong> <code>HTML5</code>, <code>CSS3</code></p>
+      <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank"><img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white"></a>
+      <a href="https://pedro-martins-nascimento.github.io/Arduino/" target="_blank"><img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white"></a>
     </td>
   </tr>
 </table>
@@ -106,7 +108,7 @@ Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-d
 
 <p align="left">
   <a href="https://www.linkedin.com/in/pedro-martins-do-nascimento-a83680226/" title="LinkedIn">
-  <img src="https://img.shields.io/badge/-Linkedin-0e76a8?style=flat-square&logo=Linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 </p>
 
 <!-- Fim do README -->
