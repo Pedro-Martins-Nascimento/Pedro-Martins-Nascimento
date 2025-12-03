@@ -79,7 +79,7 @@ Competências Desenvolvidas: `Análise de Requisitos`, `Planejamento de Sistemas
 <br clear="both"/>
 <br/>
 
-Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-do-nascimento-a8f3fRY680226/) para uma descrição mais detalhada da minha experiência de trabalho.
+Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-do-nascimento-a83680226/) para uma descrição mais detalhada da minha experiência de trabalho.
 
 ---
 
