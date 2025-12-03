@@ -5,10 +5,10 @@
 <p align="left"> 
   <h3>Olá, eu sou o Pedro Martins do Nascimento! 👋</h3>
   <p>
-    Sou um <strong>Desenvolvedor de Software</strong> focado em criar soluções eficientes com <strong>Python</strong> e <strong>JavaScript</strong>. Minha paixão é usar a programação para automatizar processos e construir aplicações web que sejam intuitivas e robustas.
+    Sou um <strong>Desenvolvedor de Software</strong> focado em criar soluções eficientes com <strong>Python</strong>, <strong>JavaScript</strong> e agora me aventurando no mundo mobile com <strong>Flutter</strong>. Minha paixão é usar a programação para automatizar processos e construir aplicações que sejam intuitivas e robustas.
   </p>
   <p>
-    Atualmente, estou aprofundando meus conhecimentos em arquitetura de microsserviços e testes automatizados, sempre em busca de novos desafios para crescer como desenvolvedor.
+    Atualmente, estou aprofundando meus conhecimentos em <strong>CI/CD para mobile</strong> e <strong>Arquitetura Limpa (Clean Architecture)</strong>, sempre em busca de novos desafios para crescer como desenvolvedor.
   </p>
 </p>
 
@@ -22,6 +22,7 @@
 <p align="left">
   <a href="https://www.python.org" target="_blank"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"></a>
+  <a href="https://dart.dev" target="_blank"><img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"></a>
   <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"></a>
   <a href="https://www.w3.org/TR/html5/" target="_blank"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"></a>
   <a href="https://www.w3.org/TR/CSS/" target="_blank"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></a>
@@ -31,6 +32,7 @@
   💼 <strong>Frameworks, Bibliotecas e Ferramentas:</strong>
 </p>
 <p align="left">
+  <a href="https://flutter.dev" target="_blank"><img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white"></a>
   <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a>
   <a href="https://nodejs.org/en/" target="_blank"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"></a>
   <a href="https://flask.palletsprojects.com/" target="_blank"><img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"></a>
@@ -47,24 +49,32 @@ Na visão geral abaixo você encontrará minhas experiências mais recentes:
 
 <a href="https://www.grupomalwee.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo do Grupo Malwee" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe51WIcWu8VEGs5j_ckHOMvRIYZ0cyPRk9sg&s"></a>
 
+**Desenvolvedor de Sistemas** \
+[**Grupo Malwee**](https://www.grupomalwee.com.br/) • Efetivo (Out 2025 - Presente) \
+Linguagens & Tecnologias: `Flutter`, `Dart`, `Testes Automatizados`, `Code Review`, `Metodologias Ágeis`, `Versionamento com Git`
+<br clear="both"/>
+<br/>
+
+<a href="https://www.grupomalwee.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo do Grupo Malwee" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe51WIcWu8VEGs5j_ckHOMvRIYZ0cyPRk9sg&s"></a>
+
 **Programador de Sistemas da Informação** \
-[**Grupo Malwee**](https://www.grupomalwee.com.br/) • Jovem Aprendiz \
-Linguagens & Tecnologias: `Python`, `JavaScript`, `Desenvolvimento de Scripts`, `Automação de Tarefas`, `Suporte a Sistemas`, `Resolução de Bugs`, `Versionamento com Git`
+[**Grupo Malwee**](https://www.grupomalwee.com.br/) • Jovem Aprendiz (Jan 2024 - Out 2025) \
+Linguagens & Tecnologias: `Python`, `JavaScript`, `Desenvolvimento de Scripts`, `Automação de Tarefas`, `Suporte a Sistemas`, `Resolução de Bugs`
 <br clear="both"/>
 <br/>
 
 <a href="https://axtun.com/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Axtun" src="https://media.licdn.com/dms/image/v2/C4E0BAQEuxNnswIqI7A/company-logo_200_200/company-logo_200_200/0/1630570234911?e=2147483647&v=beta&t=7KYd11ZPgnP3GgvMJWUYfe1_i1fj-dsQ3w8QEqgqH_s"/></a>
 
 **Montador de Painéis Elétricos** \
-[**Axtun**](https://axtun.com/) • Efetivo \
-Competências Desenvolvidas: `Lógica de Sistemas`, `Debugging de Hardware`, `Interpretação de Especificações Técnicas`, `Raciocínio Lógico`, `Atenção a Detalhes`, `Controle de Qualidade`
+[**Axtun**](https://axtun.com/) • Efetivo (Abr 2023 - Jan 2024) \
+Competências Desenvolvidas: `Lógica de Sistemas`, `Debugging de Hardware`, `Interpretação de Especificações Técnicas`, `Raciocínio Lógico`, `Atenção a Detalhes`
 <br clear="both"/>
 <br/>
 
-<a href="https://www.projecamp.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Projecamp" src="https://media.licdn.com/dms/image/v2/C560BAQEG5Gx_0dI6Dg/company-logo_200_200/company-logo_200_200/0/1631335337722?e=1762387200&v=beta&t=327hwDzO1adtN1JfkUVNLlAtPffu9hc-Qk_PvtD0GCg"/></a>
+<a href="https://www.projecamp.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Projecamp" src="https://media.licdn.com/dms/image/v2/C560BAQEG5Gx_0dI6Dg/company-logo_200_200/company-logo_200_200/0/1631335337722?e=1766620800&v=beta&t=rIXHJ8A2nkHMRHokwnCPo_LFsxm1gObWtU-1AjS_IoU"/></a>
 
 **Estagiário Projetista Elétrico** \
-[**Projecamp**](https://www.projecamp.com.br/) • Estágio \
+[**Projecamp**](https://www.projecamp.com.br/) • Estágio (Mar 2022 - Abr 2023) \
 Competências Desenvolvidas: `Análise de Requisitos`, `Planejamento de Sistemas`, `Visão Sistêmica`, `Documentação Técnica`, `Resolução de Problemas`
 <br clear="both"/>
 <br/>
@@ -95,7 +105,7 @@ Por favor, encontre-me no [LinkedIn](https://www.linkedin.com/in/pedro-martins-d
       </a>
       <h3>Glossário de Componentes Eletrônicos</h3>
       <p>Site estático desenvolvido em equipe como projeto acadêmico. O objetivo foi criar um guia de referência para componentes de Arduino usando <strong>HTML5 semântico e CSS3 puro</strong>.</p>
-      <p><strong>Tecnologias:</strong> <code>HTML5</code>, <code>CSS3</code></p>
+      <p><strong>Tecnologias:</strong> <code>HTML5</code>, `CSS3`</p>
       <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank"><img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white"></a>
       <a href="https://pedro-martins-nascimento.github.io/Arduino/" target="_blank"><img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white"></a>
     </td>
