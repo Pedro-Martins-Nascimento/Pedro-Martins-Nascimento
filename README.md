@@ -105,7 +105,7 @@ Por favor, encontre-me no [Linkedin](https://www.linkedin.com/in/pedro-martins-d
       </a>
       <h3>Glossário de Componentes Eletrônicos</h3>
       <p>Site estático desenvolvido em equipe como projeto acadêmico. O objetivo foi criar um guia de referência para componentes de Arduino usando <strong>HTML5 semântico e CSS3 puro</strong>.</p>
-      <p><strong>Tecnologias:</strong> <code>HTML5</code>, `CSS3`</p>
+      <p><strong>Tecnologias:</strong> <code>HTML5</code>, <code>CSS3</code></p>
       <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank"><img src="https://img.shields.io/badge/Ver%20Repositório-100000?style=for-the-badge&logo=github&logoColor=white"></a>
       <a href="https://pedro-martins-nascimento.github.io/Arduino/" target="_blank"><img src="https://img.shields.io/badge/Ver%20Demo%20Ao%20Vivo-28A745?style=for-the-badge&logo=rocket&logoColor=white"></a>
     </td>
