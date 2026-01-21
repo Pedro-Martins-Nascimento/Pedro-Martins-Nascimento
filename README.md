@@ -71,7 +71,7 @@ Competências Desenvolvidas: `Lógica de Sistemas`, `Debugging de Hardware`, `In
 <br clear="both"/>
 <br/>
 
-<a href="https://www.projecamp.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Projecamp" src="https://media.licdn.com/dms/image/v2/C560BAQEG5Gx_0dI6Dg/company-logo_200_200/company-logo_200_200/0/1631335337722?e=1766620800&v=beta&t=rIXHJ8A2nkHMRHokwnCPo_LFsxm1gObWtU-1AjS_IoU"/></a>
+<a href="https://www.projecamp.com.br/" target="_blank"><img align="left" height="94px" width="94px" alt="Logo da Projecamp" src="https://media.licdn.com/dms/image/v2/C560BAQEG5Gx_0dI6Dg/company-logo_200_200/company-logo_200_200/0/1631335337722?e=1770854400&v=beta&t=L6ZGB2EQB7RNhfh9xJSzG-6yuVhPDuyORdG4dy6tcas"/></a>
 
 **Estagiário Projetista Elétrico** \
 [**Projecamp**](https://www.projecamp.com.br/) • Estágio (Mar 2022 - Abr 2023) \
