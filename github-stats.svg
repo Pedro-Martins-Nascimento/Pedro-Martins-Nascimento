@@ -1,0 +1,47 @@
+<svg viewBox="0 0 860 150" width="860" height="150"
+     xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
+  <style>
+    .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; }
+    .num { fill: #58a6ff; font-size: 26px; font-weight: 700; }
+    .lbl { fill: #8b949e; font-size: 11px; }
+    .divider { stroke: #30363d; stroke-width: 1; }
+    .lang-name { fill: #c9d1d9; font-size: 11px; }
+    .lang-pct { fill: #8b949e; font-size: 11px; }
+    .bar {
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: grow 0.5s ease-out forwards;
+    }
+    @keyframes grow { to { transform: scaleX(1); } }
+  </style>
+  <rect class="bg" x="0.5" y="0.5" width="859" height="149" rx="10" ry="10"/>
+  <line class="divider" x1="430" y1="20" x2="430" y2="130"/>
+  
+  <text x="94.6" y="66" text-anchor="middle" class="num">158</text>
+  <text x="94.6" y="88" text-anchor="middle" class="lbl">Total</text>
+  <text x="223.6" y="66" text-anchor="middle" class="num">0</text>
+  <text x="223.6" y="88" text-anchor="middle" class="lbl">Streak atual</text>
+  <text x="352.59999999999997" y="66" text-anchor="middle" class="num">4</text>
+  <text x="352.59999999999997" y="88" text-anchor="middle" class="lbl">Streak recorde</text>
+  
+  <text x="470" y="37" class="lang-name">JavaScript</text>
+  <text x="830" y="37" text-anchor="end" class="lang-pct">42.9%</text>
+  <rect x="470" y="40" width="360" height="5" rx="2.5" fill="#21262d"/>
+  <rect x="470" y="40" width="154.4" height="5" rx="2.5" fill="#f1e05a" class="bar" style="animation-delay:0.00s"/>
+  <text x="470" y="54" class="lang-name">C#</text>
+  <text x="830" y="54" text-anchor="end" class="lang-pct">14.3%</text>
+  <rect x="470" y="57" width="360" height="5" rx="2.5" fill="#21262d"/>
+  <rect x="470" y="57" width="51.5" height="5" rx="2.5" fill="#178600" class="bar" style="animation-delay:0.08s"/>
+  <text x="470" y="71" class="lang-name">PLpgSQL</text>
+  <text x="830" y="71" text-anchor="end" class="lang-pct">14.3%</text>
+  <rect x="470" y="74" width="360" height="5" rx="2.5" fill="#21262d"/>
+  <rect x="470" y="74" width="51.5" height="5" rx="2.5" fill="#336790" class="bar" style="animation-delay:0.16s"/>
+  <text x="470" y="88" class="lang-name">Vue</text>
+  <text x="830" y="88" text-anchor="end" class="lang-pct">14.3%</text>
+  <rect x="470" y="91" width="360" height="5" rx="2.5" fill="#21262d"/>
+  <rect x="470" y="91" width="51.5" height="5" rx="2.5" fill="#41b883" class="bar" style="animation-delay:0.24s"/>
+  <text x="470" y="105" class="lang-name">HTML</text>
+  <text x="830" y="105" text-anchor="end" class="lang-pct">14.3%</text>
+  <rect x="470" y="108" width="360" height="5" rx="2.5" fill="#21262d"/>
+  <rect x="470" y="108" width="51.5" height="5" rx="2.5" fill="#e34c26" class="bar" style="animation-delay:0.32s"/>
+</svg>
