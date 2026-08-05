@@ -1,92 +1,644 @@
-"""
-Downsamples source-prepped.png to a character grid and picks a glyph per
-cell from a brightness ramp (sparse -> dense). Monochrome, high contrast.
-Each row wipes left-to-right (SMIL clip-path animate), staggered top to
-bottom, prints once and freezes. Output: avi-ascii.svg (repo root) —
-here written as pedro-ascii.svg.
-"""
-import os
-
-from PIL import Image
-
-RAMP = " .`:-=+*cs#%@"   # bright (sparse) -> dark (dense)
-#        ^ leading space clears the background to nothing
-
-COLS = 100
-ROWS = 53
-CHAR_W = 6.2
-CHAR_H = 11
-FILL = "#9ba7b4"   # single light-gray fill — no per-character color
-
-IN_PATH = os.path.join(os.path.dirname(__file__), "..", "source-prepped.png")
-OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "pedro-ascii.svg")
-
-
-def to_grid(path, cols, rows):
-    im = Image.open(path).convert("L")
-    # character cells are taller than wide, so undersample vertically
-    # to keep the portrait's proportions from looking squashed
-    im = im.resize((cols, rows), Image.LANCZOS)
-    px = im.load()
-    grid = []
-    for y in range(rows):
-        row = []
-        for x in range(cols):
-            brightness = px[x, y] / 255.0
-            idx = int((1 - brightness) * (len(RAMP) - 1))
-            row.append(RAMP[idx])
-        grid.append("".join(row))
-    return grid
-
-
-def esc(ch):
-    return {"&": "&amp;", "<": "&lt;", ">": "&gt;"}.get(ch, ch)
-
-
-def render(grid):
-    width = COLS * CHAR_W
-    height = ROWS * CHAR_H
-    row_delay = 0.045
-
-    rows_svg = []
-    for ry, row in enumerate(grid):
-        y = (ry + 1) * CHAR_H
-        text = "".join(esc(c) for c in row)
-        delay = ry * row_delay
-        dur = 0.5
-        clip_id = f"wipe{ry}"
-        rows_svg.append(f"""
-  <clipPath id="{clip_id}">
-    <rect x="0" y="{y - CHAR_H}" width="0" height="{CHAR_H + 2}">
-      <animate attributeName="width" from="0" to="{width}" begin="{delay:.3f}s"
-               dur="{dur}s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
-    </rect>
-  </clipPath>
-  <text x="0" y="{y}" class="row" clip-path="url(#{clip_id})" xml:space="preserve">{text}</text>
-  <rect class="cursor" x="0" y="{y - CHAR_H + 1}" width="{CHAR_W}" height="{CHAR_H}">
-    <animate attributeName="x" from="0" to="{width}" begin="{delay:.3f}s"
-             dur="{dur}s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
-    <animate attributeName="opacity" from="1" to="0" begin="{delay + dur:.3f}s" dur="0.15s" fill="freeze"/>
-  </rect>""")
-
-    svg = f"""<svg viewBox="0 0 {width} {height}" width="{width}" height="{height}"
+<svg viewBox="0 0 620.0 583" width="620.0" height="583"
      xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
   <style>
-    .row {{ fill: {FILL}; font-size: {CHAR_H}px; letter-spacing: 0px; white-space: pre; }}
-    .cursor {{ fill: #39d353; }}
+    .row { fill: #9ba7b4; font-size: 11px; letter-spacing: 0px; white-space: pre; }
+    .cursor { fill: #39d353; }
   </style>
-  {''.join(rows_svg)}
-</svg>"""
-    return svg
-
-
-def main():
-    grid = to_grid(IN_PATH, COLS, ROWS)
-    svg = render(grid)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
-        f.write(svg)
-    print(f"Wrote {OUT_PATH} ({COLS}x{ROWS} chars)")
-
-
-if __name__ == "__main__":
-    main()
+  
+  <clipPath id="wipe0">
+    <rect x="0" y="0" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.000s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="11" class="row" clip-path="url(#wipe0)" xml:space="preserve">                                          .*++++**+=-+css%=                                         </text>
+  <rect class="cursor" x="0" y="1" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.000s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.500s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe1">
+    <rect x="0" y="11" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.045s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="22" class="row" clip-path="url(#wipe1)" xml:space="preserve">                                          `s**s###c+=+ccss=                                         </text>
+  <rect class="cursor" x="0" y="12" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.045s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.545s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe2">
+    <rect x="0" y="22" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.090s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="33" class="row" clip-path="url(#wipe2)" xml:space="preserve">                                        .`-%%sccsc*=--==+-=.                                        </text>
+  <rect class="cursor" x="0" y="23" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.090s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.590s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe3">
+    <rect x="0" y="33" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.135s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="44" class="row" clip-path="url(#wipe3)" xml:space="preserve">                                         ` *s-=***=:::--=+=                                         </text>
+  <rect class="cursor" x="0" y="34" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.135s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.635s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe4">
+    <rect x="0" y="44" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.180s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="55" class="row" clip-path="url(#wipe4)" xml:space="preserve">                                          .=*-:=+-::::-==-.                                         </text>
+  <rect class="cursor" x="0" y="45" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.180s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.680s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe5">
+    <rect x="0" y="55" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.225s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="66" class="row" clip-path="url(#wipe5)" xml:space="preserve">                                           `cc*++=::::---.                                          </text>
+  <rect class="cursor" x="0" y="56" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.225s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.725s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe6">
+    <rect x="0" y="66" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.270s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="77" class="row" clip-path="url(#wipe6)" xml:space="preserve">                                            -sc*==:`:--``                                           </text>
+  <rect class="cursor" x="0" y="67" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.270s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.770s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe7">
+    <rect x="0" y="77" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.315s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="88" class="row" clip-path="url(#wipe7)" xml:space="preserve">                                            .*c+----=-::`                                           </text>
+  <rect class="cursor" x="0" y="78" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.315s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.815s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe8">
+    <rect x="0" y="88" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.360s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="99" class="row" clip-path="url(#wipe8)" xml:space="preserve">                                           +%#c**+=-::::``                                          </text>
+  <rect class="cursor" x="0" y="89" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.360s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.860s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe9">
+    <rect x="0" y="99" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.405s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="110" class="row" clip-path="url(#wipe9)" xml:space="preserve">                                           ###= c*=-::::.-=:`                                       </text>
+  <rect class="cursor" x="0" y="100" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.405s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.905s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe10">
+    <rect x="0" y="110" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.450s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="121" class="row" clip-path="url(#wipe10)" xml:space="preserve">                                          `%ss-`cc*=--:`:sc+c+:`                                    </text>
+  <rect class="cursor" x="0" y="111" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.450s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.950s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe11">
+    <rect x="0" y="121" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.495s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="132" class="row" clip-path="url(#wipe11)" xml:space="preserve">                                        .:-=--*sc**+=-::cs+cs##c*=-`                                </text>
+  <rect class="cursor" x="0" y="122" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.495s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="0.995s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe12">
+    <rect x="0" y="132" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.540s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="143" class="row" clip-path="url(#wipe12)" xml:space="preserve">                                      .----:`.-=c+===:-*ssssss#ss##s*=-                             </text>
+  <rect class="cursor" x="0" y="133" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.540s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.040s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe13">
+    <rect x="0" y="143" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.585s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="154" class="row" clip-path="url(#wipe13)" xml:space="preserve">                                     .sc=:::`.=%#*++++*sssssss##ss#ssc*=                            </text>
+  <rect class="cursor" x="0" y="144" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.585s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.085s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe14">
+    <rect x="0" y="154" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.630s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="165" class="row" clip-path="url(#wipe14)" xml:space="preserve">                                     =#+=````.*%#sssssscssssss###scccc*+-                           </text>
+  <rect class="cursor" x="0" y="155" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.630s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.130s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe15">
+    <rect x="0" y="165" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.675s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="176" class="row" clip-path="url(#wipe15)" xml:space="preserve">                                    `#c+=`````s%#ssssccccssssss##sss*cc++`                          </text>
+  <rect class="cursor" x="0" y="166" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.675s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.175s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe16">
+    <rect x="0" y="176" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.720s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="187" class="row" clip-path="url(#wipe16)" xml:space="preserve">                                    *s++=+*-+sc#scssccccccccccss#ss*ccc**=                          </text>
+  <rect class="cursor" x="0" y="177" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.720s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.220s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe17">
+    <rect x="0" y="187" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.765s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="198" class="row" clip-path="url(#wipe17)" xml:space="preserve">                                   `s*===c#=csc##sssscscsccccc*sssccccc**+-                         </text>
+  <rect class="cursor" x="0" y="188" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.765s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.265s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe18">
+    <rect x="0" y="198" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.810s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="209" class="row" clip-path="url(#wipe18)" xml:space="preserve">                                   +c==--sc=sscs#ccc*csccccccc**ccccccc***+                         </text>
+  <rect class="cursor" x="0" y="199" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.810s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.310s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe19">
+    <rect x="0" y="209" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.855s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="220" class="row" clip-path="url(#wipe19)" xml:space="preserve">                                  .c+=-:=#++scccsc*=*sscccc****ccsscccc****`                        </text>
+  <rect class="cursor" x="0" y="210" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.855s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.355s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe20">
+    <rect x="0" y="220" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.900s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="231" class="row" clip-path="url(#wipe20)" xml:space="preserve">                                  +c+=-`*#*cscccc#++sssccc*******##sscc**+*-                        </text>
+  <rect class="cursor" x="0" y="221" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.900s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.400s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe21">
+    <rect x="0" y="231" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.945s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="242" class="row" clip-path="url(#wipe21)" xml:space="preserve">                                 :c+=-:`c##scccccc=cssssccc******##ssscc*++=                        </text>
+  <rect class="cursor" x="0" y="232" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.945s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.445s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe22">
+    <rect x="0" y="242" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="0.990s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="253" class="row" clip-path="url(#wipe22)" xml:space="preserve">                                .c*+=-::##scccccsssssssscccc****c##ssscc**+=                        </text>
+  <rect class="cursor" x="0" y="243" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="0.990s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.490s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe23">
+    <rect x="0" y="253" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.035s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="264" class="row" clip-path="url(#wipe23)" xml:space="preserve">                                =c*+-::-##sscc*cs**ssscss*cc*cccc#%ssssc++==                        </text>
+  <rect class="cursor" x="0" y="254" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.035s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.535s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe24">
+    <rect x="0" y="264" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.080s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="275" class="row" clip-path="url(#wipe24)" xml:space="preserve">                               `sc+=-::-%#ssscccs*csssccsc+c***ccs%#c+-:```:.                       </text>
+  <rect class="cursor" x="0" y="265" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.080s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.580s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe25">
+    <rect x="0" y="275" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.125s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="286" class="row" clip-path="url(#wipe25)" xml:space="preserve">                               =s*+=--:+##sssc*cc=ccssscc#s+cc**cs%s=-:````:.                       </text>
+  <rect class="cursor" x="0" y="276" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.125s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.625s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe26">
+    <rect x="0" y="286" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.170s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="297" class="row" clip-path="url(#wipe26)" xml:space="preserve">                               =s*+=--:==+*==*ccc+csss#scc#s*sc*cs#%*=-::``:.                       </text>
+  <rect class="cursor" x="0" y="287" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.170s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.670s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe27">
+    <rect x="0" y="297" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.215s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="308" class="row" clip-path="url(#wipe27)" xml:space="preserve">                               :c**++=------::=``-`=ss##s*c#s*sccs#%#*++=-:-.                       </text>
+  <rect class="cursor" x="0" y="298" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.215s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.715s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe28">
+    <rect x="0" y="308" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.260s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="319" class="row" clip-path="url(#wipe28)" xml:space="preserve">                               `s**c**=---=c*+=::-.`c*+*sscs%sc###%#s**++=--.                       </text>
+  <rect class="cursor" x="0" y="309" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.260s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.760s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe29">
+    <rect x="0" y="319" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.305s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="330" class="row" clip-path="url(#wipe29)" xml:space="preserve">                                *c**s*`  =ssccc+*++=-``:::=*csc**+=---::::--.                       </text>
+  <rect class="cursor" x="0" y="320" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.305s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.805s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe30">
+    <rect x="0" y="330" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.350s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="341" class="row" clip-path="url(#wipe30)" xml:space="preserve">                                 -==:    +@%##=.-+*+=:``. ....`.......``:==-                        </text>
+  <rect class="cursor" x="0" y="331" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.350s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.850s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe31">
+    <rect x="0" y="341" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.395s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="352" class="row" clip-path="url(#wipe31)" xml:space="preserve">                                         *%s##-.``-++=-:`:::::::::`::-=+++-.                        </text>
+  <rect class="cursor" x="0" y="342" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.395s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.895s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe32">
+    <rect x="0" y="352" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.440s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="363" class="row" clip-path="url(#wipe32)" xml:space="preserve">                                         +#ssssssccs*==--=++++=====+++==-`                          </text>
+  <rect class="cursor" x="0" y="353" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.440s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.940s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe33">
+    <rect x="0" y="363" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.485s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="374" class="row" clip-path="url(#wipe33)" xml:space="preserve">                                         *sss########cccs######sssscc*                              </text>
+  <rect class="cursor" x="0" y="364" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.485s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="1.985s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe34">
+    <rect x="0" y="374" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.530s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="385" class="row" clip-path="url(#wipe34)" xml:space="preserve">                                         *ssss####sss##ssssccccccccc**`                             </text>
+  <rect class="cursor" x="0" y="375" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.530s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.030s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe35">
+    <rect x="0" y="385" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.575s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="396" class="row" clip-path="url(#wipe35)" xml:space="preserve">                                         *s##s#sssssssssccccccc*cc***+:                             </text>
+  <rect class="cursor" x="0" y="386" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.575s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.075s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe36">
+    <rect x="0" y="396" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.620s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="407" class="row" clip-path="url(#wipe36)" xml:space="preserve">                                         csss##sss#ssssccc**********+=:                             </text>
+  <rect class="cursor" x="0" y="397" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.620s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.120s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe37">
+    <rect x="0" y="407" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.665s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="418" class="row" clip-path="url(#wipe37)" xml:space="preserve">                                        .sssssssssssssscscc*********+=:                             </text>
+  <rect class="cursor" x="0" y="408" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.665s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.165s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe38">
+    <rect x="0" y="418" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.710s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="429" class="row" clip-path="url(#wipe38)" xml:space="preserve">                                        -ss#ssssccccccccc**c*cc****c*+:                             </text>
+  <rect class="cursor" x="0" y="419" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.710s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.210s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe39">
+    <rect x="0" y="429" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.755s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="440" class="row" clip-path="url(#wipe39)" xml:space="preserve">                                        -#sssssssc*c*cc*******c**c**+=:                             </text>
+  <rect class="cursor" x="0" y="430" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.755s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.255s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe40">
+    <rect x="0" y="440" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.800s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="451" class="row" clip-path="url(#wipe40)" xml:space="preserve">                                        *sssccccccccc********cc****++=:                             </text>
+  <rect class="cursor" x="0" y="441" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.800s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.300s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe41">
+    <rect x="0" y="451" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.845s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="462" class="row" clip-path="url(#wipe41)" xml:space="preserve">                                       `sssssssscccc*********cc*c***+=-                             </text>
+  <rect class="cursor" x="0" y="452" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.845s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.345s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe42">
+    <rect x="0" y="462" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.890s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="473" class="row" clip-path="url(#wipe42)" xml:space="preserve">                                       -scccccsssccccc********ccc***+=-                             </text>
+  <rect class="cursor" x="0" y="463" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.890s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.390s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe43">
+    <rect x="0" y="473" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.935s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="484" class="row" clip-path="url(#wipe43)" xml:space="preserve">                                       +sccccccsccccccc*******cc*****==.                            </text>
+  <rect class="cursor" x="0" y="474" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.935s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.435s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe44">
+    <rect x="0" y="484" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="1.980s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="495" class="row" clip-path="url(#wipe44)" xml:space="preserve">                                       *ccccc*ccccc***c**************+=`                            </text>
+  <rect class="cursor" x="0" y="485" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="1.980s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.480s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe45">
+    <rect x="0" y="495" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.025s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="506" class="row" clip-path="url(#wipe45)" xml:space="preserve">                                      .cccc**ccccc***++***********+++==:                            </text>
+  <rect class="cursor" x="0" y="496" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.025s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.525s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe46">
+    <rect x="0" y="506" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.070s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="517" class="row" clip-path="url(#wipe46)" xml:space="preserve">                                      .s##########ss##sssssssssssscc***-                            </text>
+  <rect class="cursor" x="0" y="507" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.070s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.570s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe47">
+    <rect x="0" y="517" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.115s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="528" class="row" clip-path="url(#wipe47)" xml:space="preserve">                                      `s#########%#####sssssssssssscccs+                            </text>
+  <rect class="cursor" x="0" y="518" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.115s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.615s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe48">
+    <rect x="0" y="528" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.160s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="539" class="row" clip-path="url(#wipe48)" xml:space="preserve">                                      `s##########%####sssssssccccccccc+                            </text>
+  <rect class="cursor" x="0" y="529" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.160s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.660s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe49">
+    <rect x="0" y="539" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.205s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="550" class="row" clip-path="url(#wipe49)" xml:space="preserve">                                       *####sssss######ssscsssccccccc**+                            </text>
+  <rect class="cursor" x="0" y="540" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.205s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.705s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe50">
+    <rect x="0" y="550" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.250s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="561" class="row" clip-path="url(#wipe50)" xml:space="preserve">                                       +#######ss#######sscsssccccccccc+                            </text>
+  <rect class="cursor" x="0" y="551" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.250s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.750s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe51">
+    <rect x="0" y="561" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.295s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="572" class="row" clip-path="url(#wipe51)" xml:space="preserve">                                       :####sccss##%%%%##sssssccccccc***.                           </text>
+  <rect class="cursor" x="0" y="562" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.295s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.795s" dur="0.15s" fill="freeze"/>
+  </rect>
+  <clipPath id="wipe52">
+    <rect x="0" y="572" width="0" height="13">
+      <animate attributeName="width" from="0" to="620.0" begin="2.340s"
+               dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    </rect>
+  </clipPath>
+  <text x="0" y="583" class="row" clip-path="url(#wipe52)" xml:space="preserve">                                       .c+=----=+*cs%%%##ssssssssscsc***-                           </text>
+  <rect class="cursor" x="0" y="573" width="6.2" height="11">
+    <animate attributeName="x" from="0" to="620.0" begin="2.340s"
+             dur="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+    <animate attributeName="opacity" from="1" to="0" begin="2.840s" dur="0.15s" fill="freeze"/>
+  </rect>
+</svg>
