@@ -17,7 +17,7 @@
   <rect class="bg" x="0.5" y="0.5" width="859" height="149" rx="10" ry="10"/>
   <line class="divider" x1="430" y1="20" x2="430" y2="130"/>
   
-  <text x="94.6" y="66" text-anchor="middle" class="num">163</text>
+  <text x="94.6" y="66" text-anchor="middle" class="num">164</text>
   <text x="94.6" y="88" text-anchor="middle" class="lbl">Total</text>
   <text x="223.6" y="66" text-anchor="middle" class="num">0</text>
   <text x="223.6" y="88" text-anchor="middle" class="lbl">Streak atual</text>
