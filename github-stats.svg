@@ -17,11 +17,11 @@
   <rect class="bg" x="0.5" y="0.5" width="859" height="149" rx="10" ry="10"/>
   <line class="divider" x1="430" y1="20" x2="430" y2="130"/>
   
-  <text x="94.6" y="66" text-anchor="middle" class="num">172</text>
+  <text x="94.6" y="66" text-anchor="middle" class="num">173</text>
   <text x="94.6" y="88" text-anchor="middle" class="lbl">Total</text>
   <text x="223.6" y="66" text-anchor="middle" class="num">0</text>
   <text x="223.6" y="88" text-anchor="middle" class="lbl">Streak atual</text>
-  <text x="352.59999999999997" y="66" text-anchor="middle" class="num">11</text>
+  <text x="352.59999999999997" y="66" text-anchor="middle" class="num">12</text>
   <text x="352.59999999999997" y="88" text-anchor="middle" class="lbl">Streak recorde</text>
   
   <text x="470" y="37" class="lang-name">JavaScript</text>
