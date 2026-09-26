@@ -1,92 +1,120 @@
 <div align="center">
 
-  <!-- Header Banner / Typing SVG -->
-  <a href="https://linkedin.com/in/pedro-martins-do-nascimento-a83680226" target="_blank">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=22C55E&center=true&vCenter=true&width=620&lines=Ol%C3%A1%2C+eu+sou+o+Pedro+Martins+%F0%9F%91%8B;Desenvolvedor+de+Sistemas+%40+Grupo+Malwee;Estudante+de+Engenharia+de+Software;Focado+em+Automa%C3%A7%C3%B5es%2C+APIs+REST+%26+Chatbots" alt="Typing SVG" />
+  <!-- Typing SVG Hero Header -->
+  <a href="https://www.linkedin.com/in/pedro-martins-do-nascimento-a83680226/" target="_blank">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&duration=2800&pause=1000&color=22C55E&center=true&vCenter=true&width=650&lines=Ol%C3%A1%2C+eu+sou+o+Pedro+Martins+%F0%9F%91%8B;Desenvolvedor+de+Sistemas+%40+Grupo+Malwee;Estudante+de+Engenharia+de+Software;Especialista+em+APIs+REST+%26+Automa%C3%A7%C3%B5es" alt="Pedro Martins - Typing SVG" />
   </a>
 
-  <p>
-    Transformando processos em automações eficientes, integrando ecossistemas via REST e construindo soluções escaláveis.<br/>
-    <b>Desenvolvedor de Sistemas</b> no <b>Grupo Malwee</b> · Cursando <b>Engenharia de Software</b> na Católica SC.
+  <p align="center">
+    <strong>Transformando regras de negócio em automações eficientes, integrando ecossistemas via REST e desenvolvendo APIs escaláveis.</strong>
   </p>
 
-  <p>
+  <!-- Quick Action & Connect Pills -->
+  <p align="center">
     <a href="https://www.linkedin.com/in/pedro-martins-do-nascimento-a83680226/" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" height="26" alt="LinkedIn"/>
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="28" alt="LinkedIn" />
+    </a>
+    &nbsp;
+    <a href="mailto:pedro.martins.donascimento@gmail.com" target="_blank">
+      <img src="https://img.shields.io/badge/Contato-EA4335?style=for-the-badge&logo=gmail&logoColor=white" height="28" alt="E-mail" />
     </a>
     &nbsp;
     <a href="https://github.com/Pedro-Martins-Nascimento?tab=repositories" target="_blank">
-      <img src="https://img.shields.io/badge/Repositórios-181717?style=flat&logo=github&logoColor=white" height="26" alt="GitHub Repos"/>
+      <img src="https://img.shields.io/badge/Meus_Projetos-181717?style=for-the-badge&logo=github&logoColor=white" height="28" alt="GitHub Repos" />
     </a>
   </p>
 
 </div>
 
-<br/>
+---
 
-<!-- ==================== WHOAMI & IDENTITY (BENTO GRID) ==================== -->
+<!-- ==================== BENTO GRID: ABOUT ME & FOCUS ==================== -->
 <table>
   <tr>
-    <td width="42%" align="center" valign="middle">
-      <img src="./pedro-ascii.svg" width="100%" alt="Pedro ASCII Art" />
+    <td width="50%" valign="top">
+      <h3>⚡ Sobre Mim</h3>
+      <ul>
+        <li>💼 <b>Desenvolvedor de Sistemas</b> no <a href="https://www.grupomalwee.com.br/"><b>Grupo Malwee</b></a>.</li>
+        <li>🎓 Cursando <b>Engenharia de Software</b> na Católica de Santa Catarina (2025–2029).</li>
+        <li>📍 Jaraguá do Sul, Santa Catarina — Brasil.</li>
+        <li>🧠 Foco no desenvolvimento de <b>APIs RESTful</b>, arquitetura de software e automação de fluxos corporativos.</li>
+        <li>💡 Entusiasta de Clean Architecture, testes automatizados e integração de Inteligência Artificial.</li>
+      </ul>
     </td>
-    <td width="58%" valign="top">
-      <img src="./info-card.svg" width="100%" alt="Info Card" />
+    <td width="50%" valign="top">
+      <h3>🎯 Atuação & Foco Diário</h3>
+      <ul>
+        <li>🚀 <b>Back-end & Integrações:</b> Construção e manutenção de APIs com <b>Node.js</b>, <b>TypeScript</b> e <b>Python</b>.</li>
+        <li>🤖 <b>Automação & Chatbots:</b> Orquestração de rotinas complexas com <b>N8N</b>, webhooks e mensageria.</li>
+        <li>🗄️ <b>Banco de Dados & Infra:</b> Modelagem com <b>PostgreSQL</b> e containerização com <b>Docker</b>.</li>
+        <li>🧪 <b>Qualidade & Performance:</b> Testes automatizados unitários e de carga com <b>Jest</b> e <b>K6</b>.</li>
+      </ul>
     </td>
   </tr>
 </table>
 
-<br/>
+---
 
-<!-- ==================== AUTOMATED CONTRIBUTIONS HEATMAP ==================== -->
-<div align="center">
-  <h3><code>pedro@github ~ $ ./contributions.sh</code></h3>
-  <img src="./contrib-heatmap.svg" width="100%" alt="Contribution Heatmap" />
-  <br/><br/>
-  <img src="./github-stats.svg" width="100%" alt="GitHub Stats & Languages" />
-</div>
-
-<br/>
-
-<!-- ==================== TECH STACK (SKILL ICONS) ==================== -->
+<!-- ==================== TECH STACK (BENTO CATEGORIES) ==================== -->
 ## 🛠️ Stack & Tecnologias
 
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h4>💻 Linguagens & Core</h4>
+      <p>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" /><br/>
+        <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h4>⚙️ Back-end & Bancos</h4>
+      <p>
+        <img src="https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/REST_APIs-005571?style=flat-square&logo=fastapi&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white" />
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h4>⚡ Automação, IA & Testes</h4>
+      <p>
+        <img src="https://img.shields.io/badge/N8N_Workflow-EA4B71?style=flat-square&logo=n8n&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Google_Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Jest_Testing-C21325?style=flat-square&logo=jest&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/K6_Load_Test-7D64FF?style=flat-square&logo=k6&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Git_&_GitHub-181717?style=flat-square&logo=github&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <div align="center">
-
-  <p><b>Linguagens & Ecossistema</b></p>
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,nodejs,python,html,css&perline=6" alt="Linguagens" />
+    <img src="https://skillicons.dev/icons?i=ts,js,nodejs,python,express,postgres,supabase,docker,n8n,gcp,git,postman,jest,tailwind,vue,react&perline=16" alt="Skill Icons Matrix" />
   </a>
-
-  <br/><br/>
-
-  <p><b>Back-end, Bancos & Ferramentas</b></p>
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=express,postgres,supabase,docker,git,postman&perline=6" alt="Backend e Ferramentas" />
-  </a>
-
-  <br/><br/>
-
-  <p><b>Front-end, Cloud & Automação</b></p>
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=vue,react,tailwind,gcp,jest&perline=6" alt="Frontend e Outros" />
-  </a>
-
 </div>
 
-<br/>
+---
 
-<!-- ==================== FEATURED PROJECTS (CARDS WITH PREVIEWS) ==================== -->
+<!-- ==================== FEATURED PROJECTS ==================== -->
 ## 🚀 Projetos em Destaque
 
-<table width="100%">
+<table>
   <tr>
     <td width="50%" valign="top">
       <a href="https://github.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas" target="_blank">
-        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas/main/Pr%C3%A9-Visualiza%C3%A7%C3%A3o.png" alt="Preview do Gerenciador de Medidas" width="100%" style="border-radius:8px;"/>
+        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Gerenciador-de-Medidas/main/Pr%C3%A9-Visualiza%C3%A7%C3%A3o.png" alt="Preview do Gerenciador de Medidas" width="100%" style="border-radius: 8px;"/>
       </a>
       <h3>📐 Gerenciador de Medidas (SPA)</h3>
-      <p>Aplicação web interativa com <b>Vanilla JS (ES6+)</b> e arquitetura <b>MVC</b>, demonstrando domínio dos fundamentos da web moderna sem depender de frameworks.</p>
+      <p>Aplicação web interativa desenvolvida com <b>JavaScript puro (Vanilla JS)</b> e padrão de arquitetura <b>MVC</b>, demonstrando sólido domínio da base sem depender de frameworks externos.</p>
       <p>
         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
         <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
@@ -104,13 +132,14 @@
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank">
-        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Arduino/master/assets/Pr%C3%A9-Visualiza%C3%A7%C3%A3o_Arduino.png" alt="Preview do Glossário Arduino" width="100%" style="border-radius:8px;"/>
+        <img src="https://raw.githubusercontent.com/Pedro-Martins-Nascimento/Arduino/master/assets/Pr%C3%A9-Visualiza%C3%A7%C3%A3o_Arduino.png" alt="Preview do Glossário Arduino" width="100%" style="border-radius: 8px;"/>
       </a>
       <h3>⚡ Glossário de Componentes Eletrônicos</h3>
-      <p>Guia interativo de referência técnica para componentes Arduino com foco em semântica, responsividade e layout com CSS3 avançado.</p>
+      <p>Guia interativo de referência técnica para componentes Arduino com foco em semântica, responsividade e layout estruturado com CSS3 moderno.</p>
       <p>
         <img src="https://img.shields.io/badge/HTML5_Semântico-E34F26?style=flat-square&logo=html5&logoColor=white" />
         <img src="https://img.shields.io/badge/CSS3_Moderno-1572B6?style=flat-square&logo=css3&logoColor=white" />
+        <img src="https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white" />
       </p>
       <p>
         <a href="https://github.com/Pedro-Martins-Nascimento/Arduino" target="_blank">
@@ -126,73 +155,112 @@
   <tr>
     <td colspan="2" valign="top">
       <h3>🏭 Textile Production API (Full-Stack & DevOps)</h3>
-      <p>API RESTful robusta para registros de produção industrial têxtil em larga escala. Desenvolvida com arquitetura em camadas, testes automatizados e containerização total.</p>
+      <p>API RESTful de nível industrial para controle de ordens e registros de produção têxtil. Desenvolvida com arquitetura em camadas, banco relacional PostgreSQL, suíte de testes unitários/integração com <b>Jest</b> e testes de carga extrema com <b>K6</b>.</p>
       <p>
         <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
         <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" />
         <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
         <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-        <img src="https://img.shields.io/badge/K6%20%26%20Jest-C21325?style=flat-square&logo=jest&logoColor=white" />
+        <img src="https://img.shields.io/badge/Jest_%26_Supertest-C21325?style=flat-square&logo=jest&logoColor=white" />
+        <img src="https://img.shields.io/badge/K6_Stress_Testing-7D64FF?style=flat-square&logo=k6&logoColor=white" />
       </p>
       <p>
         <a href="https://github.com/Pedro-Martins-Nascimento/textile-production-api" target="_blank">
-          <img src="https://img.shields.io/badge/Ver_Repositório-181717?style=flat&logo=github&logoColor=white" height="24"/>
+          <img src="https://img.shields.io/badge/Acessar_Repositório-181717?style=flat&logo=github&logoColor=white" height="24"/>
         </a>
       </p>
     </td>
   </tr>
 </table>
 
-<br/>
+---
 
-<!-- ==================== EXPERIENCE TIMELINE ==================== -->
-## 💼 Experiência Profissional
+<!-- ==================== WORK EXPERIENCE ==================== -->
+## 💼 Trajetória Profissional
 
 <table>
   <tr>
-    <td align="center" width="80" valign="middle">
-      <img src="./assets/logo/malwee.png" width="48" height="48" style="border-radius:10px" alt="Grupo Malwee"/>
+    <td align="center" width="90" valign="middle">
+      <img src="./assets/logo/malwee.png" width="56" height="56" style="border-radius:12px" alt="Grupo Malwee"/>
     </td>
     <td>
-      <b>Desenvolvedor de Sistemas · Grupo Malwee</b> <i>(Out 2025 – Presente)</i><br/>
-      <sub>Atuação no desenvolvimento de automações internas, criação de chatbots e integrações entre ecossistemas via REST API.</sub><br/>
+      <b>Desenvolvedor de Sistemas · <a href="https://www.grupomalwee.com.br/">Grupo Malwee</a></b> <i>(Out 2025 – Presente)</i><br/>
+      <sub>Atuação direta na automação de processos de negócio, desenvolvimento de chatbots corporativos e integrações robustas entre múltiplos sistemas via REST API.</sub><br/>
       <code>Node.js</code> <code>TypeScript</code> <code>Python</code> <code>N8N</code> <code>Docker</code> <code>PostgreSQL</code> <code>REST APIs</code>
     </td>
   </tr>
   <tr>
-    <td align="center" width="80" valign="middle">
-      <img src="./assets/logo/malwee.png" width="48" height="48" style="border-radius:10px" alt="Grupo Malwee"/>
+    <td align="center" width="90" valign="middle">
+      <img src="./assets/logo/malwee.png" width="56" height="56" style="border-radius:12px" alt="Grupo Malwee"/>
     </td>
     <td>
-      <b>Programador de Sistemas · Grupo Malwee</b> <i>(Jan 2024 – Out 2025)</i><br/>
-      <sub>Desenvolvimento de scripts em Python/JS, automação de processos repetitivos e suporte a sistemas legados e modernos.</sub><br/>
-      <code>Python</code> <code>JavaScript</code> <code>Automações</code> <code>Suporte a Sistemas</code>
+      <b>Programador de Sistemas da Informação · Grupo Malwee</b> <i>(Jan 2024 – Out 2025)</i><br/>
+      <sub>Criação de scripts em Python e JavaScript para automação de tarefas manuais, suporte técnico especializado a sistemas internos e manutenção corretiva/evolutiva.</sub><br/>
+      <code>Python</code> <code>JavaScript</code> <code>Automações</code> <code>Suporte a Sistemas</code> <code>Bancos Relacionais</code>
     </td>
   </tr>
   <tr>
-    <td align="center" width="80" valign="middle">
-      <img src="./assets/logo/axtun.png" width="48" height="48" style="border-radius:10px" alt="Axtun"/>
+    <td align="center" width="90" valign="middle">
+      <img src="./assets/logo/axtun.png" width="56" height="56" style="border-radius:12px" alt="Axtun"/>
     </td>
     <td>
-      <b>Montador de Painéis Elétricos · Axtun</b> <i>(Abr 2023 – Jan 2024)</i><br/>
-      <sub>Montagem de circuitos, raciocínio lógico estruturado e diagnóstico/debugging de hardware e sistemas.</sub>
+      <b>Montador de Painéis Elétricos · <a href="https://axtun.com/">Axtun</a></b> <i>(Abr 2023 – Jan 2024)</i><br/>
+      <sub>Montagem de circuitos e painéis industriais, debugging de componentes e desenvolvimento de forte raciocínio lógico e estruturado.</sub><br/>
+      <code>Lógica de Sistemas</code> <code>Debugging de Hardware</code> <code>Atenção a Detalhes</code>
     </td>
   </tr>
   <tr>
-    <td align="center" width="80" valign="middle">
-      <img src="./assets/logo/projecamp.png" width="48" height="48" style="border-radius:10px" alt="Projecamp"/>
+    <td align="center" width="90" valign="middle">
+      <img src="./assets/logo/projecamp.png" width="56" height="56" style="border-radius:12px" alt="Projecamp"/>
     </td>
     <td>
-      <b>Estagiário Projetista Elétrico · Projecamp</b> <i>(Mar 2022 – Abr 2023)</i><br/>
-      <sub>Planejamento, modelagem de requisitos e documentação técnica de projetos industriais.</sub>
+      <b>Estagiário Projetista Elétrico · <a href="https://www.projecamp.com.br/">Projecamp</a></b> <i>(Mar 2022 – Abr 2023)</i><br/>
+      <sub>Planejamento, levantamento de requisitos de engenharia e elaboração de documentação técnica detalhada.</sub><br/>
+      <code>Análise de Requisitos</code> <code>Documentação Técnica</code> <code>Visão Sistêmica</code>
     </td>
   </tr>
 </table>
+
+---
+
+<!-- ==================== GITHUB STATS & METRICS ==================== -->
+## 📊 Estatísticas & Atividade no GitHub
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td valign="top" align="center">
+        <a href="https://github.com/Pedro-Martins-Nascimento">
+          <img src="https://github-readme-stats.vercel.app/api?username=Pedro-Martins-Nascimento&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=22C55E&icon_color=22C55E&text_color=9CA3AF" alt="GitHub Stats" />
+        </a>
+      </td>
+      <td valign="top" align="center">
+        <a href="https://github.com/Pedro-Martins-Nascimento">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Pedro-Martins-Nascimento&theme=tokyonight&hide_border=true&background=0D1117&ring=22C55E&fire=22C55E&currStreakLabel=22C55E" alt="GitHub Streak" />
+        </a>
+      </td>
+    </tr>
+  </table>
+  
+  <br/>
+
+  <!-- Top Languages Bar Card -->
+  <a href="https://github.com/Pedro-Martins-Nascimento">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Pedro-Martins-Nascimento&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=22C55E&text_color=9CA3AF" alt="Top Languages" />
+  </a>
+
+  <br/><br/>
+
+  <!-- Automated Daily Heatmap from GitHub Actions -->
+  <h3><code>pedro@github ~ $ ./contributions.sh</code></h3>
+  <img src="./contrib-heatmap.svg" width="100%" alt="Contribution Heatmap" />
+
+</div>
 
 <br/>
 
 ---
 
 <div align="center">
-  <sub>Desenvolvido com 💚 por <b>Pedro Martins do Nascimento</b></sub>
+  <sub>Construído com 💚 e precisão técnica por <b>Pedro Martins do Nascimento</b></sub>
 </div>
