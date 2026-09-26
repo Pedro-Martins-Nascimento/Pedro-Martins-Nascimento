@@ -73,12 +73,12 @@
     <td width="33.33%" valign="top">
       <h4>⚡ Automação, IA & Testes</h4>
       <p>
-        <img src="https://img.shields.io/badge/N8N_Workflow-EA4B71?style=flat-square&logo=n8n&logoColor=white" />
-        <img src="https://img.shields.io/badge/Google_Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/N8N-EA4B71?style=flat-square&logo=n8n&logoColor=white" />
+        <img src="https://img.shields.io/badge/Gemini_AI-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" /><br/>
         <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white" />
-        <img src="https://img.shields.io/badge/Jest_Testing-C21325?style=flat-square&logo=jest&logoColor=white" /><br/>
-        <img src="https://img.shields.io/badge/K6_Load_Test-7D64FF?style=flat-square&logo=k6&logoColor=white" />
-        <img src="https://img.shields.io/badge/Git_&_GitHub-181717?style=flat-square&logo=github&logoColor=white" />
+        <img src="https://img.shields.io/badge/Git-181717?style=flat-square&logo=github&logoColor=white" /><br/>
+        <img src="https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white" />
+        <img src="https://img.shields.io/badge/K6_Testing-7D64FF?style=flat-square&logo=k6&logoColor=white" />
       </p>
     </td>
   </tr>
