@@ -1,26 +1,15 @@
 """
-Renders a self-contained stats card — total contributions, current/longest
-streak (from data/contributions.json) plus top languages — in the same
-terminal aesthetic as the rest of the profile art. No third-party rendering
-service and no GitHub API token: languages come from scraping the public
-repositories tab (https://github.com/<user>?tab=repositories), the same
-technique fetch_contributions.py uses for the contribution calendar. If the
-scrape fails for any reason, this script reuses the last successful
-data/languages.json rather than erroring out or wiping the section.
+Renders a modern, self-contained stats card — total contributions, current/longest
+streak (from data/contributions.json) plus top languages — with a sleek, high-contrast
+Bento Dark design. No third-party rendering downtime and no rate limits.
 Output: github-stats.svg (repo root).
 """
 import json
 import os
 
-import requests
-from bs4 import BeautifulSoup
-
 USERNAME = os.environ.get("GITHUB_USERNAME", "Pedro-Martins-Nascimento")
 REPOS_URL = f"https://github.com/{USERNAME}?tab=repositories"
 
-# Repos to leave out of the language mix: the profile repo itself has no
-# language, and the skills-* repos are GitHub's own learning-exercise
-# templates rather than real personal work.
 EXCLUDE_REPOS = {USERNAME, "skills-communicate-using-markdown", "skills-introduction-to-github"}
 
 CONTRIB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.json")
@@ -37,13 +26,16 @@ DEFAULT_COLOR = "#8b949e"
 
 
 def fetch_top_languages():
-    """Counts each repo's primary language across the repositories tab
-    (paginating if there are more than one page) and turns that into a
-    share-of-repos percentage — simple, and needs no auth or API calls."""
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        return []
+
     counts = {}
     page = 1
     while True:
-        resp = requests.get(REPOS_URL, params={"page": page}, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+        resp = requests.get(REPOS_URL, params={"page": page}, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
         items = soup.select("li[itemprop=owns]")
@@ -65,11 +57,13 @@ def fetch_top_languages():
         if not next_link:
             break
         page += 1
+        if page > 5:
+            break
 
     total = sum(counts.values())
     if total == 0:
         return []
-    ranked = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:6]
+    ranked = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:5]
     return [{"name": name, "pct": round(100 * n / total, 1)} for name, n in ranked]
 
 
@@ -82,7 +76,7 @@ def get_languages():
                 json.dump(langs, f, ensure_ascii=False, indent=2)
             return langs
     except Exception as e:
-        print(f"Warning: language fetch failed ({e}); reusing cached data if available.")
+        print(f"Warning: language fetch failed ({e}); reusing cached data.")
 
     if os.path.exists(LANG_CACHE_PATH):
         with open(LANG_CACHE_PATH, encoding="utf-8") as f:
@@ -96,56 +90,70 @@ def render(stats, languages):
     longest = stats.get("longest_streak", 0)
 
     width = 860
-    height = 150
+    height = 160
 
-    # left block: three big numbers
-    def stat_block(x, value, label):
+    left_w = 420
+
+    def stat_block(cx, value, label, color="#22c55e"):
         return f'''
-  <text x="{x}" y="66" text-anchor="middle" class="num">{value}</text>
-  <text x="{x}" y="88" text-anchor="middle" class="lbl">{label}</text>'''
+    <g transform="translate({cx}, 0)">
+      <text x="0" y="74" text-anchor="middle" class="num" fill="{color}">{value}</text>
+      <text x="0" y="98" text-anchor="middle" class="lbl">{label}</text>
+    </g>'''
 
-    left_w = 430
     stats_svg = (
-        stat_block(left_w * 0.22, total, "Total")
-        + stat_block(left_w * 0.52, current, "Streak atual")
-        + stat_block(left_w * 0.82, longest, "Streak recorde")
+        stat_block(75, total, "Contribuições", "#38bdf8")
+        + stat_block(210, f"{current} dias", "Streak Atual 🔥", "#22c55e")
+        + stat_block(345, f"{longest} dias", "Maior Streak", "#a855f7")
     )
 
-    # right block: top languages as horizontal bars
-    bar_x = left_w + 40
-    bar_w = width - bar_x - 30
+    bar_x = left_w + 35
+    bar_w = width - bar_x - 35
     bars = []
     if languages:
-        for i, lang in enumerate(languages):
-            y = 40 + i * 17
+        for i, lang in enumerate(languages[:5]):
+            y = 44 + i * 22
             color = LANG_COLORS.get(lang["name"], DEFAULT_COLOR)
-            fill_w = bar_w * (lang["pct"] / 100)
+            fill_w = max(4, bar_w * (lang["pct"] / 100))
             bars.append(f'''
-  <text x="{bar_x}" y="{y - 3}" class="lang-name">{lang["name"]}</text>
-  <text x="{bar_x + bar_w}" y="{y - 3}" text-anchor="end" class="lang-pct">{lang["pct"]}%</text>
-  <rect x="{bar_x}" y="{y}" width="{bar_w}" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="{bar_x}" y="{y}" width="{fill_w:.1f}" height="5" rx="2.5" fill="{color}" class="bar" style="animation-delay:{i * 0.08:.2f}s"/>''')
+    <circle cx="{bar_x}" cy="{y - 5}" r="4" fill="{color}" />
+    <text x="{bar_x + 12}" y="{y - 1}" class="lang-name">{lang["name"]}</text>
+    <text x="{bar_x + bar_w}" y="{y - 1}" text-anchor="end" class="lang-pct">{lang["pct"]}%</text>
+    <rect x="{bar_x}" y="{y + 4}" width="{bar_w}" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="{bar_x}" y="{y + 4}" width="{fill_w:.1f}" height="5" rx="2.5" fill="{color}" class="bar" style="animation-delay:{i * 0.08:.2f}s"/>''')
     else:
-        bars.append(f'<text x="{bar_x}" y="80" class="lbl">sem dados de linguagem</text>')
+        bars.append(f'<text x="{bar_x}" y="80" class="lbl">Carregando linguagens...</text>')
 
     svg = f"""<svg viewBox="0 0 {width} {height}" width="{width}" height="{height}"
-     xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
+     xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+  </defs>
   <style>
-    .bg {{ fill: #0d1117; stroke: #30363d; stroke-width: 1; }}
-    .num {{ fill: #58a6ff; font-size: 26px; font-weight: 700; }}
-    .lbl {{ fill: #8b949e; font-size: 11px; }}
-    .divider {{ stroke: #30363d; stroke-width: 1; }}
-    .lang-name {{ fill: #c9d1d9; font-size: 11px; }}
-    .lang-pct {{ fill: #8b949e; font-size: 11px; }}
+    .bg {{ fill: url(#cardGrad); stroke: #30363d; stroke-width: 1.2; }}
+    .num {{ font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }}
+    .lbl {{ fill: #8b949e; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }}
+    .divider {{ stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }}
+    .section-title {{ fill: #c9d1d9; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; }}
+    .lang-name {{ fill: #e6edf3; font-size: 12px; font-weight: 600; }}
+    .lang-pct {{ fill: #8b949e; font-size: 11px; font-weight: 600; }}
     .bar {{
       transform-origin: left;
       transform: scaleX(0);
-      animation: grow 0.5s ease-out forwards;
+      animation: grow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }}
     @keyframes grow {{ to {{ transform: scaleX(1); }} }}
   </style>
-  <rect class="bg" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10" ry="10"/>
+  <rect class="bg" x="1" y="1" width="{width - 2}" height="{height - 2}" rx="14" ry="14"/>
+  
+  <text x="35" y="28" class="section-title">📊 GitHub Overview</text>
+  <text x="{bar_x}" y="28" class="section-title">💻 Top Linguagens</text>
+  
   <line class="divider" x1="{left_w}" y1="20" x2="{left_w}" y2="{height - 20}"/>
+  
   {stats_svg}
   {''.join(bars)}
 </svg>"""

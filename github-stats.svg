@@ -1,51 +1,70 @@
-<svg viewBox="0 0 860 150" width="860" height="150"
-     xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
+<svg viewBox="0 0 860 160" width="860" height="160"
+     xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+  </defs>
   <style>
-    .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; }
-    .num { fill: #58a6ff; font-size: 26px; font-weight: 700; }
-    .lbl { fill: #8b949e; font-size: 11px; }
-    .divider { stroke: #30363d; stroke-width: 1; }
-    .lang-name { fill: #c9d1d9; font-size: 11px; }
-    .lang-pct { fill: #8b949e; font-size: 11px; }
+    .bg { fill: url(#cardGrad); stroke: #30363d; stroke-width: 1.2; }
+    .num { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+    .lbl { fill: #8b949e; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .divider { stroke: #30363d; stroke-width: 1; stroke-dasharray: 4 4; }
+    .section-title { fill: #c9d1d9; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; }
+    .lang-name { fill: #e6edf3; font-size: 12px; font-weight: 600; }
+    .lang-pct { fill: #8b949e; font-size: 11px; font-weight: 600; }
     .bar {
       transform-origin: left;
       transform: scaleX(0);
-      animation: grow 0.5s ease-out forwards;
+      animation: grow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes grow { to { transform: scaleX(1); } }
   </style>
-  <rect class="bg" x="0.5" y="0.5" width="859" height="149" rx="10" ry="10"/>
-  <line class="divider" x1="430" y1="20" x2="430" y2="130"/>
+  <rect class="bg" x="1" y="1" width="858" height="158" rx="14" ry="14"/>
   
-  <text x="94.6" y="66" text-anchor="middle" class="num">227</text>
-  <text x="94.6" y="88" text-anchor="middle" class="lbl">Total</text>
-  <text x="223.6" y="66" text-anchor="middle" class="num">54</text>
-  <text x="223.6" y="88" text-anchor="middle" class="lbl">Streak atual</text>
-  <text x="352.59999999999997" y="66" text-anchor="middle" class="num">54</text>
-  <text x="352.59999999999997" y="88" text-anchor="middle" class="lbl">Streak recorde</text>
+  <text x="35" y="28" class="section-title">📊 GitHub Overview</text>
+  <text x="455" y="28" class="section-title">💻 Top Linguagens</text>
   
-  <text x="470" y="37" class="lang-name">JavaScript</text>
-  <text x="830" y="37" text-anchor="end" class="lang-pct">44.4%</text>
-  <rect x="470" y="40" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="40" width="159.8" height="5" rx="2.5" fill="#f1e05a" class="bar" style="animation-delay:0.00s"/>
-  <text x="470" y="54" class="lang-name">Dart</text>
-  <text x="830" y="54" text-anchor="end" class="lang-pct">11.1%</text>
-  <rect x="470" y="57" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="57" width="40.0" height="5" rx="2.5" fill="#00B4AB" class="bar" style="animation-delay:0.08s"/>
-  <text x="470" y="71" class="lang-name">C#</text>
-  <text x="830" y="71" text-anchor="end" class="lang-pct">11.1%</text>
-  <rect x="470" y="74" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="74" width="40.0" height="5" rx="2.5" fill="#178600" class="bar" style="animation-delay:0.16s"/>
-  <text x="470" y="88" class="lang-name">PLpgSQL</text>
-  <text x="830" y="88" text-anchor="end" class="lang-pct">11.1%</text>
-  <rect x="470" y="91" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="91" width="40.0" height="5" rx="2.5" fill="#336790" class="bar" style="animation-delay:0.24s"/>
-  <text x="470" y="105" class="lang-name">Vue</text>
-  <text x="830" y="105" text-anchor="end" class="lang-pct">11.1%</text>
-  <rect x="470" y="108" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="108" width="40.0" height="5" rx="2.5" fill="#41b883" class="bar" style="animation-delay:0.32s"/>
-  <text x="470" y="122" class="lang-name">HTML</text>
-  <text x="830" y="122" text-anchor="end" class="lang-pct">11.1%</text>
-  <rect x="470" y="125" width="360" height="5" rx="2.5" fill="#21262d"/>
-  <rect x="470" y="125" width="40.0" height="5" rx="2.5" fill="#e34c26" class="bar" style="animation-delay:0.40s"/>
+  <line class="divider" x1="420" y1="20" x2="420" y2="140"/>
+  
+  
+    <g transform="translate(75, 0)">
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#38bdf8">227</text>
+      <text x="0" y="98" text-anchor="middle" class="lbl">Contribuições</text>
+    </g>
+    <g transform="translate(210, 0)">
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#22c55e">54 dias</text>
+      <text x="0" y="98" text-anchor="middle" class="lbl">Streak Atual 🔥</text>
+    </g>
+    <g transform="translate(345, 0)">
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#a855f7">54 dias</text>
+      <text x="0" y="98" text-anchor="middle" class="lbl">Maior Streak</text>
+    </g>
+  
+    <circle cx="455" cy="39" r="4" fill="#f1e05a" />
+    <text x="467" y="43" class="lang-name">JavaScript</text>
+    <text x="825" y="43" text-anchor="end" class="lang-pct">44.4%</text>
+    <rect x="455" y="48" width="370" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="455" y="48" width="164.3" height="5" rx="2.5" fill="#f1e05a" class="bar" style="animation-delay:0.00s"/>
+    <circle cx="455" cy="61" r="4" fill="#00B4AB" />
+    <text x="467" y="65" class="lang-name">Dart</text>
+    <text x="825" y="65" text-anchor="end" class="lang-pct">11.1%</text>
+    <rect x="455" y="70" width="370" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="455" y="70" width="41.1" height="5" rx="2.5" fill="#00B4AB" class="bar" style="animation-delay:0.08s"/>
+    <circle cx="455" cy="83" r="4" fill="#178600" />
+    <text x="467" y="87" class="lang-name">C#</text>
+    <text x="825" y="87" text-anchor="end" class="lang-pct">11.1%</text>
+    <rect x="455" y="92" width="370" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="455" y="92" width="41.1" height="5" rx="2.5" fill="#178600" class="bar" style="animation-delay:0.16s"/>
+    <circle cx="455" cy="105" r="4" fill="#336790" />
+    <text x="467" y="109" class="lang-name">PLpgSQL</text>
+    <text x="825" y="109" text-anchor="end" class="lang-pct">11.1%</text>
+    <rect x="455" y="114" width="370" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="455" y="114" width="41.1" height="5" rx="2.5" fill="#336790" class="bar" style="animation-delay:0.24s"/>
+    <circle cx="455" cy="127" r="4" fill="#41b883" />
+    <text x="467" y="131" class="lang-name">Vue</text>
+    <text x="825" y="131" text-anchor="end" class="lang-pct">11.1%</text>
+    <rect x="455" y="136" width="370" height="5" rx="2.5" fill="#21262d"/>
+    <rect x="455" y="136" width="41.1" height="5" rx="2.5" fill="#41b883" class="bar" style="animation-delay:0.32s"/>
 </svg>
