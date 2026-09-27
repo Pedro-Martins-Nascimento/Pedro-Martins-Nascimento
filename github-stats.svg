@@ -30,11 +30,11 @@
   
   
     <g transform="translate(75, 0)">
-      <text x="0" y="74" text-anchor="middle" class="num" fill="#38bdf8">239</text>
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#38bdf8">223</text>
       <text x="0" y="98" text-anchor="middle" class="lbl">Contribuições</text>
     </g>
     <g transform="translate(210, 0)">
-      <text x="0" y="74" text-anchor="middle" class="num" fill="#22c55e">54 dias</text>
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#22c55e">0 dias</text>
       <text x="0" y="98" text-anchor="middle" class="lbl">Streak Atual 🔥</text>
     </g>
     <g transform="translate(345, 0)">
