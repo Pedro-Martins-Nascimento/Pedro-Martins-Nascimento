@@ -30,7 +30,7 @@
   
   
     <g transform="translate(75, 0)">
-      <text x="0" y="74" text-anchor="middle" class="num" fill="#38bdf8">223</text>
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#38bdf8">226</text>
       <text x="0" y="98" text-anchor="middle" class="lbl">Contribuições</text>
     </g>
     <g transform="translate(210, 0)">
@@ -38,7 +38,7 @@
       <text x="0" y="98" text-anchor="middle" class="lbl">Streak Atual 🔥</text>
     </g>
     <g transform="translate(345, 0)">
-      <text x="0" y="74" text-anchor="middle" class="num" fill="#a855f7">61 dias</text>
+      <text x="0" y="74" text-anchor="middle" class="num" fill="#a855f7">62 dias</text>
       <text x="0" y="98" text-anchor="middle" class="lbl">Maior Streak</text>
     </g>
   
@@ -47,24 +47,24 @@
     <text x="825" y="43" text-anchor="end" class="lang-pct">44.4%</text>
     <rect x="455" y="48" width="370" height="5" rx="2.5" fill="#21262d"/>
     <rect x="455" y="48" width="164.3" height="5" rx="2.5" fill="#f1e05a" class="bar" style="animation-delay:0.00s"/>
-    <circle cx="455" cy="61" r="4" fill="#00B4AB" />
-    <text x="467" y="65" class="lang-name">Dart</text>
+    <circle cx="455" cy="61" r="4" fill="#41b883" />
+    <text x="467" y="65" class="lang-name">Vue</text>
     <text x="825" y="65" text-anchor="end" class="lang-pct">11.1%</text>
     <rect x="455" y="70" width="370" height="5" rx="2.5" fill="#21262d"/>
-    <rect x="455" y="70" width="41.1" height="5" rx="2.5" fill="#00B4AB" class="bar" style="animation-delay:0.08s"/>
-    <circle cx="455" cy="83" r="4" fill="#178600" />
-    <text x="467" y="87" class="lang-name">C#</text>
+    <rect x="455" y="70" width="41.1" height="5" rx="2.5" fill="#41b883" class="bar" style="animation-delay:0.08s"/>
+    <circle cx="455" cy="83" r="4" fill="#00B4AB" />
+    <text x="467" y="87" class="lang-name">Dart</text>
     <text x="825" y="87" text-anchor="end" class="lang-pct">11.1%</text>
     <rect x="455" y="92" width="370" height="5" rx="2.5" fill="#21262d"/>
-    <rect x="455" y="92" width="41.1" height="5" rx="2.5" fill="#178600" class="bar" style="animation-delay:0.16s"/>
-    <circle cx="455" cy="105" r="4" fill="#336790" />
-    <text x="467" y="109" class="lang-name">PLpgSQL</text>
+    <rect x="455" y="92" width="41.1" height="5" rx="2.5" fill="#00B4AB" class="bar" style="animation-delay:0.16s"/>
+    <circle cx="455" cy="105" r="4" fill="#178600" />
+    <text x="467" y="109" class="lang-name">C#</text>
     <text x="825" y="109" text-anchor="end" class="lang-pct">11.1%</text>
     <rect x="455" y="114" width="370" height="5" rx="2.5" fill="#21262d"/>
-    <rect x="455" y="114" width="41.1" height="5" rx="2.5" fill="#336790" class="bar" style="animation-delay:0.24s"/>
-    <circle cx="455" cy="127" r="4" fill="#41b883" />
-    <text x="467" y="131" class="lang-name">Vue</text>
+    <rect x="455" y="114" width="41.1" height="5" rx="2.5" fill="#178600" class="bar" style="animation-delay:0.24s"/>
+    <circle cx="455" cy="127" r="4" fill="#336790" />
+    <text x="467" y="131" class="lang-name">PLpgSQL</text>
     <text x="825" y="131" text-anchor="end" class="lang-pct">11.1%</text>
     <rect x="455" y="136" width="370" height="5" rx="2.5" fill="#21262d"/>
-    <rect x="455" y="136" width="41.1" height="5" rx="2.5" fill="#41b883" class="bar" style="animation-delay:0.32s"/>
+    <rect x="455" y="136" width="41.1" height="5" rx="2.5" fill="#336790" class="bar" style="animation-delay:0.32s"/>
 </svg>
