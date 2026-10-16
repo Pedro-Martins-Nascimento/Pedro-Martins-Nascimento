@@ -1,22 +1,22 @@
 [
   {
     "name": "JavaScript",
-    "pct": 44.4
+    "pct": 40.0
   },
   {
     "name": "Dart",
-    "pct": 11.1
+    "pct": 20.0
   },
   {
     "name": "Vue",
-    "pct": 11.1
+    "pct": 10.0
   },
   {
     "name": "C#",
-    "pct": 11.1
+    "pct": 10.0
   },
   {
     "name": "PLpgSQL",
-    "pct": 11.1
+    "pct": 10.0
   }
 ]
